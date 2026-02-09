@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <!-- Header & Navigation -->
     <header>
@@ -152,7 +154,7 @@
                     <div class="footer-logo">
                         <i class="fas fa-box-open"></i> Glades International
                     </div>
-                    <p>Your trusted partner for innovative packaging solutions that perform—today and into the future.</p>
+                    <p>Your trusted partner for innovative packaging solutions that perform---today and into the future.</p>
                 </div>
                 
                 <div class="footer-links">
@@ -189,6 +191,32 @@
         </div>
     </footer>
 
+    <!-- Floating Chat Button (Global) -->
+    <div class="floating-chat-btn" id="openChat">
+        <i class="fas fa-comment-alt"></i>
+    </div>
+
+    <!-- Chat Modal (Global) -->
+    <div class="chat-modal" id="chatModal">
+        <div class="chat-box">
+            <span class="close-btn" id="closeChat">&times;</span>
+            <h3><i class="fas fa-envelope-open-text"></i> Send a Quick Message</h3>
+            <form id="quickContactForm" action="https://formsubmit.co/baybayinedu@gmail.com" method="POST">
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_subject" value="Quick Message - Glades International">
+                <input type="text" name="name" placeholder="Your Name" required />
+                <input type="email" name="email" placeholder="Your Email" required />
+                <input type="text" name="subject" placeholder="Message Subject" required />
+                <textarea name="message" placeholder="Write your message here..." required></textarea>
+                <button type="submit" class="submit-btn"><i class="fas fa-paper-plane"></i> Send Message</button>
+            </form>
+            <div id="popupMessage" class="popup-message">
+                <i class="fas fa-check-circle"></i> Message Sent Successfully!
+            </div>
+        </div>
+    </div>
+
     <script src="js/main.js"></script>
+    <script src="js/contact.js"></script>
 </body>
 </html>
