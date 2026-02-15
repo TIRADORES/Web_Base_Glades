@@ -5,183 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products | Glades International Corporation</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        /* Product-specific styles */
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-        
-        .product-card {
-            background: white;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-        }
-        
-        .product-image {
-            width: 100%;
-            height: 250px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 4rem;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .product-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.1);
-            opacity: 0;
-            transition: var(--transition);
-        }
-        
-        .product-card:hover .product-image::before {
-            opacity: 1;
-        }
-        
-        .product-content {
-            padding: 2rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .product-category {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background: rgba(30, 207, 214, 0.1);
-            color: var(--accent);
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-        
-        .product-content h3 {
-            font-size: 1.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-        
-        .product-content p {
-            color: var(--gray);
-            margin-bottom: 1.5rem;
-            flex-grow: 1;
-        }
-        
-        .product-features {
-            list-style: none;
-            padding: 0;
-            margin-bottom: 1.5rem;
-        }
-        
-        .product-features li {
-            padding: 0.5rem 0;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--gray);
-            font-size: 0.95rem;
-        }
-        
-        .product-features li i {
-            color: var(--accent);
-            font-size: 0.8rem;
-        }
-        
-        .product-cta {
-            display: flex;
-            gap: 1rem;
-            margin-top: auto;
-        }
-        
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--accent);
-            color: var(--accent);
-            padding: 10px 20px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: var(--transition);
-            text-align: center;
-            flex: 1;
-        }
-        
-        .btn-outline:hover {
-            background: var(--accent);
-            color: white;
-        }
-        
-        .categories-filter {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin: 3rem 0;
-        }
-        
-        .filter-btn {
-            padding: 12px 24px;
-            background: white;
-            border: 2px solid var(--light-gray);
-            border-radius: 50px;
-            font-weight: 600;
-            color: var(--gray);
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        
-        .filter-btn:hover,
-        .filter-btn.active {
-            background: var(--accent);
-            color: white;
-            border-color: var(--accent);
-        }
-        
-        @media (max-width: 768px) {
-            .products-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .categories-filter {
-                flex-direction: column;
-                align-items: stretch;
-            }
-        }
-    </style>
 </head>
 <body>
-    <!-- Header & Navigation -->
+
+    <!-- ===== HEADER ===== -->
     <header>
         <div class="container">
             <nav class="navbar">
-               <a href="index.html" class="logo">
-    <img src="ASSET/Glades_Logo.png" alt="Glades International Logo" style="height: 40px; margin-right: 10px;">
-    Glades International
-</a>
+                <a href="index.html" class="logo">
+                    <img src="ASSET/Glades_Logo.png" alt="Glades International Logo" onerror="this.style.display='none'">
+                    Glades International
+                </a>
                 <div class="mobile-menu-btn">
                     <i class="fas fa-bars"></i>
                 </div>
@@ -199,15 +34,19 @@
         </div>
     </header>
 
-    <!-- Page Hero -->
+    <!-- ===== PAGE HERO ===== -->
     <section class="page-hero">
         <div class="container">
             <h1>Our Products</h1>
             <p>Innovative packaging solutions designed for excellence and sustainability</p>
         </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+            <span>Scroll</span>
+        </div>
     </section>
 
-    <!-- Products Content -->
+    <!-- ===== PRODUCT CATALOG ===== -->
     <section class="section">
         <div class="container">
             <div class="section-header fade-in">
@@ -226,9 +65,10 @@
 
             <!-- Products Grid -->
             <div class="products-grid">
-                <!-- Product 1 -->
+
+                <!-- Thermoformed Containers -->
                 <div class="product-card fade-in" data-category="food">
-                    <div class="product-image">
+                    <div class="product-image-area" style="background: linear-gradient(135deg, #0E3A5D, #1F5E8A);">
                         <i class="fas fa-box"></i>
                     </div>
                     <div class="product-content">
@@ -242,14 +82,14 @@
                             <li><i class="fas fa-check-circle"></i> Custom Sizes Available</li>
                         </ul>
                         <div class="product-cta">
-                            <a href="contact.html" class="btn-outline">Request Quote</a>
+                            <a href="contact.html" class="btn btn-outline">Request Quote</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Product 2 -->
+                <!-- Injection Molded -->
                 <div class="product-card fade-in" data-category="food">
-                    <div class="product-image">
+                    <div class="product-image-area" style="background: linear-gradient(135deg, #1F5E8A, #2F7FB3);">
                         <i class="fas fa-utensils"></i>
                     </div>
                     <div class="product-content">
@@ -263,35 +103,35 @@
                             <li><i class="fas fa-check-circle"></i> BPA-Free</li>
                         </ul>
                         <div class="product-cta">
-                            <a href="contact.html" class="btn-outline">Request Quote</a>
+                            <a href="contact.html" class="btn btn-outline">Request Quote</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Product 3 -->
+                <!-- Cup & Lid -->
                 <div class="product-card fade-in" data-category="beverage">
-                    <div class="product-image">
+                    <div class="product-image-area" style="background: linear-gradient(135deg, #0E3A5D, #2F7FB3);">
                         <i class="fas fa-coffee"></i>
                     </div>
                     <div class="product-content">
                         <span class="product-category">Beverage</span>
-                        <h3>Cup & Lid Solutions</h3>
+                        <h3>Cup &amp; Lid Solutions</h3>
                         <p>Complete cup and lid systems for hot and cold beverages. Perfect for coffee shops and QSR brands.</p>
                         <ul class="product-features">
-                            <li><i class="fas fa-check-circle"></i> Hot & Cold Compatible</li>
+                            <li><i class="fas fa-check-circle"></i> Hot &amp; Cold Compatible</li>
                             <li><i class="fas fa-check-circle"></i> Secure Lid Fit</li>
                             <li><i class="fas fa-check-circle"></i> Insulated Options</li>
                             <li><i class="fas fa-check-circle"></i> Custom Branding</li>
                         </ul>
                         <div class="product-cta">
-                            <a href="contact.html" class="btn-outline">Request Quote</a>
+                            <a href="contact.html" class="btn btn-outline">Request Quote</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Product 4 -->
+                <!-- Clamshell -->
                 <div class="product-card fade-in" data-category="food">
-                    <div class="product-image">
+                    <div class="product-image-area" style="background: linear-gradient(135deg, #1F5E8A, #0E3A5D);">
                         <i class="fas fa-hamburger"></i>
                     </div>
                     <div class="product-content">
@@ -305,14 +145,14 @@
                             <li><i class="fas fa-check-circle"></i> Multiple Sizes</li>
                         </ul>
                         <div class="product-cta">
-                            <a href="contact.html" class="btn-outline">Request Quote</a>
+                            <a href="contact.html" class="btn btn-outline">Request Quote</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Product 5 -->
+                <!-- Eco-Friendly -->
                 <div class="product-card fade-in" data-category="sustainable">
-                    <div class="product-image">
+                    <div class="product-image-area" style="background: linear-gradient(135deg, #2F7FB3, #1F5E8A);">
                         <i class="fas fa-leaf"></i>
                     </div>
                     <div class="product-content">
@@ -326,14 +166,14 @@
                             <li><i class="fas fa-check-circle"></i> Carbon Neutral</li>
                         </ul>
                         <div class="product-cta">
-                            <a href="contact.html" class="btn-outline">Request Quote</a>
+                            <a href="contact.html" class="btn btn-outline">Request Quote</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Product 6 -->
+                <!-- Custom Manufacturing -->
                 <div class="product-card fade-in" data-category="industrial">
-                    <div class="product-image">
+                    <div class="product-image-area" style="background: linear-gradient(135deg, #0E3A5D, #E53935);">
                         <i class="fas fa-industry"></i>
                     </div>
                     <div class="product-content">
@@ -347,24 +187,143 @@
                             <li><i class="fas fa-check-circle"></i> Scalable Production</li>
                         </ul>
                         <div class="product-cta">
-                            <a href="contact.html" class="btn-outline">Request Quote</a>
+                            <a href="contact.html" class="btn btn-outline">Request Quote</a>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- CTA Section -->
-            <div class="section-header fade-in" style="margin-top: 5rem;">
-                <h2>Need a Custom Solution?</h2>
-                <p>Our team can develop custom packaging solutions tailored to your specific requirements</p>
-                <a href="contact.html" class="btn btn-large">
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PRODUCT CUSTOMIZER (from Index2.html) ===== -->
+    <section class="customizer-section">
+        <div class="container">
+            <div class="section-header fade-in" style="margin-bottom: 50px;">
+                <h2>Interactive Product Explorer</h2>
+                <p>Click the color swatches to see our products in different variants</p>
+            </div>
+            <div class="customizer-grid">
+
+                <!-- Plastic Cup Card -->
+                <div class="prod-card">
+                    <div class="overflow">
+                        <div class="product-image">
+                            <img src="CUP_WHITE.png" alt="Plastic Cup White" class="cup-image active" data-color="white" onerror="this.style.display='none'">
+                            <img src="CUP_BROWN.png" alt="Plastic Cup Brown" class="cup-image" data-color="brown" onerror="this.style.display='none'">
+                            <img src="CUP_BLACK.png" alt="Plastic Cup Black" class="cup-image" data-color="black" onerror="this.style.display='none'">
+                            <!-- Fallback icon if images missing -->
+                            <i class="fas fa-coffee" style="font-size:4rem;color:rgba(14,58,93,0.3);position:absolute;"></i>
+                        </div>
+                    </div>
+                    <div class="glass">
+                        <div class="gradient-blur">
+                            <div></div><div></div><div></div><div></div><div></div><div></div>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h2>EcoCup Pro</h2>
+                        <p>Premium reusable plastic cup with ergonomic design.</p>
+                        <div class="options">
+                            <div onclick="changeProductColor(this,'white')" class="active" style="background:#ffffff;border:2px solid #ddd;" title="White"></div>
+                            <div onclick="changeProductColor(this,'brown')" style="background:#8B4513;" title="Brown"></div>
+                            <div onclick="changeProductColor(this,'black')" style="background:#1e1e1e;" title="Black"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Food Container Card -->
+                <div class="prod-card">
+                    <div class="overflow">
+                        <div class="product-image">
+                            <img src="Plastic food container_white.png" alt="Food Container White" class="container-image active" data-color="white" onerror="this.style.display='none'">
+                            <img src="Plastic food container_black.png" alt="Food Container Black" class="container-image" data-color="black" onerror="this.style.display='none'">
+                            <i class="fas fa-box" style="font-size:4rem;color:rgba(255,255,255,0.3);position:absolute;"></i>
+                        </div>
+                    </div>
+                    <div class="glass">
+                        <div class="gradient-blur">
+                            <div></div><div></div><div></div><div></div><div></div><div></div>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h2>SafeStore Container</h2>
+                        <p>Durable food-safe container with secure locking lid.</p>
+                        <div class="options">
+                            <div onclick="changeProductColor(this,'white')" class="active" style="background:#ffffff;border:2px solid #ddd;" title="White"></div>
+                            <div onclick="changeProductColor(this,'black')" style="background:#1e1e1e;" title="Black"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Condiment Cups Card -->
+                <div class="prod-card">
+                    <div class="overflow">
+                        <div class="product-image">
+                            <img src="Plastic_condiment_cups_white.png" alt="Condiment Cups White" class="condiment-image active" data-color="white" onerror="this.style.display='none'">
+                            <img src="Plastic_condiment_cups_brown.png" alt="Condiment Cups Brown" class="condiment-image" data-color="brown" onerror="this.style.display='none'">
+                            <img src="Plastic_condiment_cups_black.png" alt="Condiment Cups Black" class="condiment-image" data-color="black" onerror="this.style.display='none'">
+                            <i class="fas fa-utensils" style="font-size:4rem;color:rgba(14,58,93,0.3);position:absolute;"></i>
+                        </div>
+                    </div>
+                    <div class="glass">
+                        <div class="gradient-blur">
+                            <div></div><div></div><div></div><div></div><div></div><div></div>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h2>MiniServe Cups</h2>
+                        <p>Perfect portion control cups for sauces and condiments.</p>
+                        <div class="options">
+                            <div onclick="changeProductColor(this,'white')" class="active" style="background:#ffffff;border:2px solid #ddd;" title="White"></div>
+                            <div onclick="changeProductColor(this,'brown')" style="background:#8B4513;" title="Brown"></div>
+                            <div onclick="changeProductColor(this,'black')" style="background:#1e1e1e;" title="Black"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Clamshell Card -->
+                <div class="prod-card">
+                    <div class="overflow">
+                        <div class="product-image">
+                            <img src="Clumshell_natural_brown.png" alt="Clamshell Natural" class="shell-image active" data-color="natural" onerror="this.style.display='none'">
+                            <img src="Clumshell_natural_matte_brown.png" alt="Clamshell Matte" class="shell-image" data-color="matte" onerror="this.style.display='none'">
+                            <i class="fas fa-leaf" style="font-size:4rem;color:rgba(139,115,85,0.4);position:absolute;"></i>
+                        </div>
+                    </div>
+                    <div class="glass">
+                        <div class="gradient-blur">
+                            <div></div><div></div><div></div><div></div><div></div><div></div>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h2>EcoShell Box</h2>
+                        <p>Biodegradable clamshell from sustainable natural fibers.</p>
+                        <div class="options">
+                            <div onclick="changeProductColor(this,'natural')" class="active" style="background:#D2B48C;" title="Natural"></div>
+                            <div onclick="changeProductColor(this,'matte')" style="background:#8B7355;" title="Matte"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA SECTION ===== -->
+    <section class="section" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-mid) 100%); text-align: center;">
+        <div class="container">
+            <div class="fade-in" style="max-width: 700px; margin: 0 auto;">
+                <h2 style="color: var(--white); margin-bottom: 18px;">Need a Custom Solution?</h2>
+                <p style="color: rgba(255,255,255,0.85); font-size: 1.1rem; margin-bottom: 36px;">Our team can develop custom packaging solutions tailored to your specific requirements.</p>
+                <a href="contact.html" class="btn btn-accent btn-large">
                     <i class="fas fa-envelope"></i> Contact Us Today
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ===== FOOTER ===== -->
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -401,36 +360,11 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2023 Glades International Corporation. All rights reserved.</p>
+                <p>&copy; 2025 Glades International Corporation. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script src="js/main.js"></script>
-    <script>
-        // Category filtering
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const productCards = document.querySelectorAll('.product-card');
-        
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                // Remove active class from all buttons
-                filterBtns.forEach(b => b.classList.remove('active'));
-                // Add active class to clicked button
-                this.classList.add('active');
-                
-                const category = this.getAttribute('data-category');
-                
-                // Filter products
-                productCards.forEach(card => {
-                    if (category === 'all' || card.getAttribute('data-category') === category) {
-                        card.style.display = 'flex';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
-    </script>
 </body>
 </html>

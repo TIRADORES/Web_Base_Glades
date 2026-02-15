@@ -5,21 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | Glades International Corporation</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Header & Navigation -->
+
+    <!-- ===== HEADER ===== -->
     <header>
         <div class="container">
             <nav class="navbar">
-               <a href="index.html" class="logo">
-    <img src="ASSET/Glades_Logo.png" alt="Glades International Logo" style="height: 40px; margin-right: 10px;">
-    Glades International
-</a>
-                <div class="mobile-menu-btn">
-                    <i class="fas fa-bars"></i>
-                </div>
+                <a href="index.html" class="logo">
+                    <img src="ASSET/Glades_Logo.png" alt="Glades International Logo" onerror="this.style.display='none'">
+                    Glades International
+                </a>
+                <div class="mobile-menu-btn"><i class="fas fa-bars"></i></div>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
@@ -34,212 +32,386 @@
         </div>
     </header>
 
-    <!-- Page Hero -->
+    <!-- ===== PAGE HERO ===== -->
     <section class="page-hero">
         <div class="container">
-            <h1 class="fade-in">Get in Touch</h1>
-            <p class="fade-in">We're here to help with your packaging needs. Contact us today!</p>
+            <h1>Get in Touch</h1>
+            <p>We're here to help with your packaging needs. Contact us today!</p>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- ===== CONTACT SECTION ===== -->
     <section class="section">
         <div class="container">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px;">
-                <!-- Contact Form -->
+            <div class="contact-grid">
+
+                <!-- LEFT: SEND US A MESSAGE -->
                 <div class="fade-in">
-                    <h2>Send Us a Message</h2>
-                    <p style="margin-bottom: 30px;">Fill out the form below and our team will get back to you within 24 hours.</p>
-                    
-                    <form id="contactForm" action="https://formsubmit.co/baybayinedu@gmail.com" method="POST">
-                        <!-- Hidden fields for FormSubmit configuration -->
-                        <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_subject" value="New Contact Form Submission - Glades International">
+                    <h2 style="margin-bottom: 10px;">Send Us a Message</h2>
+                    <p style="color: var(--text-mid); margin-bottom: 30px;">Fill out the form and our team will respond within 24 hours.</p>
+
+                    <form id="contactForm"
+                          action="https://formsubmit.co/baybayinedu@gmail.com"
+                          method="POST">
+
+                        <!-- FormSubmit hidden fields -->
+                        <input type="hidden" name="_captcha"  value="false">
                         <input type="hidden" name="_template" value="table">
-                        
+                        <input type="hidden" name="_next"     value="contact.html#success">
+                        <input type="hidden" name="_subject"  id="dynamicSubject" value="New Contact Inquiry – Glades International">
+                        <input type="hidden" name="_autoresponse" value="Thank you for contacting Glades International! We have received your message and will get back to you within 24 hours.">
+
                         <div class="form-group">
-                            <label for="name"><i class="fas fa-user"></i> Full Name <span class="required">*</span></label>
-                            <input type="text" id="name" name="name" class="form-control" required>
+                            <label><i class="fas fa-user"></i> Full Name <span class="required">*</span></label>
+                            <input type="text" name="name" class="form-control" placeholder="Your full name" required>
                             <span class="error-message"></span>
                         </div>
-                        
+
                         <div class="form-group">
-                            <label for="email"><i class="fas fa-envelope"></i> Email Address <span class="required">*</span></label>
-                            <input type="email" id="email" name="email" class="form-control" required>
+                            <label><i class="fas fa-envelope"></i> Email Address <span class="required">*</span></label>
+                            <input type="email" name="email" class="form-control" placeholder="your@email.com" required>
                             <span class="error-message"></span>
                         </div>
-                        
+
                         <div class="form-group">
-                            <label for="phone"><i class="fas fa-phone"></i> Phone Number</label>
-                            <input type="tel" id="phone" name="phone" class="form-control">
+                            <label><i class="fas fa-phone"></i> Phone Number</label>
+                            <input type="tel" name="phone" class="form-control" placeholder="+1 (555) 000-0000">
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="fas fa-building"></i> Company</label>
+                            <input type="text" name="company" class="form-control" placeholder="Your company name">
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="fas fa-tag"></i> Type of Inquiry <span class="required">*</span></label>
+                            <select name="inquiry_type" id="inquiryType" class="form-control" required>
+                                <option value="" disabled selected>Select Inquiry Type</option>
+                                <option value="Investment Opportunity">Investment Opportunity</option>
+                                <option value="Partnership">Partnership</option>
+                                <option value="Company Information">Company Information</option>
+                                <option value="Product Inquiry">Product Inquiry</option>
+                                <option value="General Inquiry">General Inquiry</option>
+                                <option value="Other">Other</option>
+                            </select>
                             <span class="error-message"></span>
                         </div>
-                        
+
                         <div class="form-group">
-                            <label for="company"><i class="fas fa-building"></i> Company</label>
-                            <input type="text" id="company" name="company" class="form-control">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="subject"><i class="fas fa-tag"></i> Subject <span class="required">*</span></label>
-                            <input type="text" id="subject" name="subject" class="form-control" required>
+                            <label><i class="fas fa-comment"></i> Message <span class="required">*</span></label>
+                            <textarea name="message" class="form-control" rows="6" placeholder="Tell us how we can help you..." required></textarea>
                             <span class="error-message"></span>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="message"><i class="fas fa-comment"></i> Message <span class="required">*</span></label>
-                            <textarea id="message" name="message" class="form-control" rows="6" required></textarea>
-                            <span class="error-message"></span>
-                        </div>
-                        
+
                         <button type="submit" class="btn btn-submit">
-                            <i class="fas fa-paper-plane"></i> Send Message
+                            <i class="fas fa-paper-plane"></i> Submit Inquiry
                         </button>
                     </form>
                 </div>
 
-                <!-- Contact Information -->
-                <div>
-                    <div class="glass-card fade-in">
-                        <h3>Contact Information</h3>
-                        <p style="margin-bottom: 30px;">Reach out to us through any of these channels</p>
-                        
-                        <div style="margin-bottom: 25px;">
-                            <div style="display: flex; align-items: start; gap: 15px;">
-                                <div class="icon-container" style="flex-shrink: 0;">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                </div>
-                                <div>
-                                    <h4 style="margin-bottom: 5px;">Address</h4>
-                                    <p style="margin: 0; opacity: 0.8;">Solid Street, LIIP, Mamplasan<br>Biñan City, Laguna<br>Philippines 4024</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div style="margin-bottom: 25px;">
-                            <div style="display: flex; align-items: start; gap: 15px;">
-                                <div class="icon-container" style="flex-shrink: 0;">
-                                    <i class="fas fa-phone"></i>
-                                </div>
-                                <div>
-                                    <h4 style="margin-bottom: 5px;">Phone</h4>
-                                    <p style="margin: 0; opacity: 0.8;">(+632) 531-2203<br>(+632) 531-2248</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div style="margin-bottom: 25px;">
-                            <div style="display: flex; align-items: start; gap: 15px;">
-                                <div class="icon-container" style="flex-shrink: 0;">
-                                    <i class="fas fa-envelope"></i>
-                                </div>
-                                <div>
-                                    <h4 style="margin-bottom: 5px;">Email</h4>
-                                    <p style="margin: 0; opacity: 0.8;">info@gladesinternational.com</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <div style="display: flex; align-items: start; gap: 15px;">
-                                <div class="icon-container" style="flex-shrink: 0;">
-                                    <i class="fas fa-clock"></i>
-                                </div>
-                                <div>
-                                    <h4 style="margin-bottom: 5px;">Business Hours</h4>
-                                    <p style="margin: 0; opacity: 0.8;">Monday - Friday: 8:00 AM - 5:00 PM<br>Saturday - Sunday: Closed</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <!-- RIGHT: CONTACT INFO -->
+                <div class="contact-info-wrapper fade-in">
+                    <div class="glass-card contact-info-card">
+                        <h3 class="info-title">Contact Information</h3>
+                        <p class="info-subtitle">Reach out through any of these channels</p>
 
-                    <div class="glass-card fade-in" style="margin-top: 30px; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white;">
-                        <h3 style="color: white; margin-bottom: 15px;">Need Quick Assistance?</h3>
-                        <p style="opacity: 0.9; margin-bottom: 20px;">Our team is ready to help you with any questions about our products and services.</p>
-                        <div style="display: flex; gap: 15px;">
-                            <a href="tel:+63253122203" class="btn" style="background: var(--accent); color: white; flex: 1; text-align: center;">
-                                <i class="fas fa-phone"></i> Call Now
-                            </a>
-                            <a href="mailto:info@gladesinternational.com" class="btn btn-secondary" style="background: transparent; border: 2px solid white; color: white; flex: 1; text-align: center;">
-                                <i class="fas fa-envelope"></i> Email Us
-                            </a>
+                        <div class="info-item">
+                            <div class="icon-container"><i class="fas fa-map-marker-alt"></i></div>
+                            <div class="info-content">
+                                <h4>Main Office Address</h4>
+                                <p>Solid Street, LIIP, Mamplasan<br>Biñan City, Laguna 4024<br>Philippines</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="icon-container"><i class="fas fa-phone"></i></div>
+                            <div class="info-content">
+                                <h4>Phone</h4>
+                                <p>(+632) 531-2203<br>(+632) 531-2248</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="icon-container"><i class="fas fa-envelope"></i></div>
+                            <div class="info-content">
+                                <h4>Email</h4>
+                                <p>info@gladesinternational.com</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="icon-container"><i class="fas fa-clock"></i></div>
+                            <div class="info-content">
+                                <h4>Business Hours</h4>
+                                <p>Monday – Friday: 8:00 AM – 5:00 PM<br>Saturday – Sunday: Closed</p>
+                            </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-   <!-- Office & Factory Locations -->
-<section class="section" style="background: white;">
-    <div class="container">
-        <div style="text-align: center; margin-bottom: 40px;">
-            <h2 class="fade-in">Our Facilities in the Philippines</h2>
-            <p class="fade-in">Visit our main office and manufacturing facilities</p>
-        </div>
-        
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
-            <!-- Main Office -->
-            <div class="glass-card fade-in">
-                <h3 style="margin-bottom: 20px;">Main Office</h3>
-                <p style="margin-bottom: 20px;"><i class="fas fa-map-marker-alt"></i> Solid Street, LIIP, Mamplasan, Biñan City, Laguna, Philippines 4024</p>
-                
-                <!-- Google Maps Embed for Main Office -->
-                <div style="height: 300px; border-radius: 10px; overflow: hidden; margin-bottom: 20px;">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3860.186367739424!2d121.05785657488355!3d14.649663476147547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b771c7c5f995%3A0xc7b1b60b7a9a45b0!2sLaguna%20International%20Industrial%20Park%2C%20Binan%2C%20Laguna!5e0!3m2!1sen!2sph!4v1698754123456!5m2!1sen!2sph"
-                        width="100%" 
-                        height="100%" 
-                        style="border:0;" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
-                
-                <div style="display: flex; gap: 15px;">
-                    <a href="https://maps.app.goo.gl/example" class="btn" style="background: var(--accent); color: white; flex: 1; text-align: center;">
-                        <i class="fas fa-directions"></i> Get Directions
-                    </a>
-                </div>
+    <!-- ===== FACILITIES SECTION (Task 4) ===== -->
+    <section class="section facilities-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="fade-in">Our Global Facilities</h2>
+                <p class="fade-in">Click a facility to view its exact location, address, and capabilities</p>
             </div>
-            
-            <!-- Manufacturing Facility -->
-            <div class="glass-card fade-in">
-                <h3 style="margin-bottom: 20px;">Manufacturing Facility</h3>
-                <p style="margin-bottom: 20px;"><i class="fas fa-industry"></i> Phase 2, LIIP, Mamplasan, Biñan City, Laguna, Philippines 4024</p>
-                
-                <!-- Google Maps Embed for Factory -->
-                <div style="height: 300px; border-radius: 10px; overflow: hidden; margin-bottom: 20px;">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3860.186367739424!2d121.05785657488355!3d14.649663476147547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b771c7c5f995%3A0xc7b1b60b7a9a45b0!2sLaguna%20International%20Industrial%20Park%2C%20Binan%2C%20Laguna!5e0!3m2!1sen!2sph!4v1698754123456!5m2!1sen!2sph"
-                        width="100%" 
-                        height="100%" 
-                        style="border:0;" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
-                
-                <div style="display: flex; gap: 15px;">
-                    <a href="https://maps.app.goo.gl/example" class="btn" style="background: var(--accent); color: white; flex: 1; text-align: center;">
-                        <i class="fas fa-directions"></i> Get Directions
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
-    <!-- Footer -->
+            <!-- FACILITY TABS -->
+            <div class="facilities-tabs">
+                <button class="facility-tab-btn active" data-facility="main-office">
+                    <i class="fas fa-building"></i> Main Office (Philippines)
+                </button>
+                <button class="facility-tab-btn" data-facility="manufacturing">
+                    <i class="fas fa-industry"></i> Manufacturing Facility
+                </button>
+                <button class="facility-tab-btn" data-facility="usa">
+                    <i class="fas fa-flag-usa"></i> USA Office
+                </button>
+                <button class="facility-tab-btn" data-facility="china">
+                    <i class="fas fa-globe-asia"></i> China Office
+                </button>
+                <button class="facility-tab-btn" data-facility="europe">
+                    <i class="fas fa-globe-europe"></i> Europe Office
+                </button>
+            </div>
+
+            <!-- PANEL: Main Office -->
+            <div class="facility-panel active" id="facility-main-office">
+                <div class="facility-detail-card fade-in">
+                    <iframe class="facility-map-frame"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3866.0!2d121.059!3d14.3422!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b77b5ddb5f07%3A0x8d3a7b3f3e3b2b0b!2sLaguna%20International%20Industrial%20Park%2C%20Binan%2C%20Laguna!5e0!3m2!1sen!2sph!4v1710987623456"
+                        allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                    <div class="facility-info-grid">
+                        <div class="facility-address-block">
+                            <h4><i class="fas fa-map-pin"></i> Address</h4>
+                            <p>
+                                <strong>Glades International Corporation – Main Office</strong><br>
+                                Solid Street, LIIP (Laguna International Industrial Park)<br>
+                                Mamplasan, Biñan City, Laguna 4024<br>
+                                Philippines
+                            </p>
+                            <p style="margin-top:12px; font-size:0.85rem; color:var(--text-mid);">
+                                <i class="fas fa-phone" style="margin-right:6px;"></i>(+632) 531-2203 / (+632) 531-2248<br>
+                                <i class="fas fa-envelope" style="margin-right:6px;"></i>info@gladesinternational.com
+                            </p>
+                        </div>
+                        <div class="facility-capabilities-block">
+                            <h4><i class="fas fa-cogs"></i> Site Capabilities</h4>
+                            <ul class="capability-list">
+                                <li><i class="fas fa-check-circle"></i> Corporate Headquarters</li>
+                                <li><i class="fas fa-check-circle"></i> Executive &amp; Administrative Offices</li>
+                                <li><i class="fas fa-check-circle"></i> Sales &amp; Business Development</li>
+                                <li><i class="fas fa-check-circle"></i> Finance &amp; Legal Departments</li>
+                                <li><i class="fas fa-check-circle"></i> R&amp;D Coordination Center</li>
+                                <li><i class="fas fa-check-circle"></i> Customer Service Hub</li>
+                                <li><i class="fas fa-check-circle"></i> ISO 9001:2015 Certified</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="facility-actions">
+                        <a href="https://www.google.com/maps/dir/?api=1&destination=Laguna+International+Industrial+Park+Binan+Laguna+Philippines" target="_blank" class="btn-directions">
+                            <i class="fas fa-location-arrow"></i> Get Directions
+                        </a>
+                        <a href="https://maps.google.com/?q=Laguna+International+Industrial+Park+Binan+Laguna+Philippines" target="_blank" class="btn-map-view">
+                            <i class="fas fa-map"></i> Open in Google Maps
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PANEL: Manufacturing -->
+            <div class="facility-panel" id="facility-manufacturing">
+                <div class="facility-detail-card fade-in">
+                    <iframe class="facility-map-frame"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3866.1!2d121.062!3d14.341!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b776d7f5f6cb%3A0x2bdfa8d3f23f5c42!2sLaguna%20International%20Industrial%20Park%20Phase%202%2C%20Binan%2C%20Laguna!5e0!3m2!1sen!2sph!4v1710988123456"
+                        allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                    <div class="facility-info-grid">
+                        <div class="facility-address-block">
+                            <h4><i class="fas fa-map-pin"></i> Address</h4>
+                            <p>
+                                <strong>Glades International – Manufacturing Facility</strong><br>
+                                Phase 2, LIIP (Laguna International Industrial Park)<br>
+                                Mamplasan, Biñan City, Laguna 4024<br>
+                                Philippines
+                            </p>
+                            <p style="margin-top:12px; font-size:0.85rem; color:var(--text-mid);">
+                                <i class="fas fa-phone" style="margin-right:6px;"></i>(+632) 531-2248<br>
+                                <strong>Hours:</strong> Mon–Fri 7:00 AM – 6:00 PM
+                            </p>
+                        </div>
+                        <div class="facility-capabilities-block">
+                            <h4><i class="fas fa-cogs"></i> Site Capabilities</h4>
+                            <ul class="capability-list">
+                                <li><i class="fas fa-check-circle"></i> Thermoforming Production Lines</li>
+                                <li><i class="fas fa-check-circle"></i> Injection Molding Machines (32 units)</li>
+                                <li><i class="fas fa-check-circle"></i> Blow Molding Equipment</li>
+                                <li><i class="fas fa-check-circle"></i> Quality Control Laboratory</li>
+                                <li><i class="fas fa-check-circle"></i> Warehousing &amp; Distribution</li>
+                                <li><i class="fas fa-check-circle"></i> Tooling &amp; Mold Shop</li>
+                                <li><i class="fas fa-check-circle"></i> ISO 9001 &amp; FDA Compliant</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="facility-actions">
+                        <a href="https://www.google.com/maps/dir/?api=1&destination=Laguna+International+Industrial+Park+Phase+2+Binan+Laguna+Philippines" target="_blank" class="btn-directions">
+                            <i class="fas fa-location-arrow"></i> Get Directions
+                        </a>
+                        <a href="https://maps.google.com/?q=Laguna+International+Industrial+Park+Phase+2+Binan+Laguna" target="_blank" class="btn-map-view">
+                            <i class="fas fa-map"></i> Open in Google Maps
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PANEL: USA -->
+            <div class="facility-panel" id="facility-usa">
+                <div class="facility-detail-card fade-in">
+                    <iframe class="facility-map-frame"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.0!2d-87.6298!3d41.8781!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880e2c3cd0f4cbed%3A0xafe0a6ad19c0!2sChicago%2C%20IL%2C%20USA!5e0!3m2!1sen!2sus!4v1710987623456"
+                        allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                    <div class="facility-info-grid">
+                        <div class="facility-address-block">
+                            <h4><i class="fas fa-map-pin"></i> Address</h4>
+                            <p>
+                                <strong>Glades International – USA Representative Office</strong><br>
+                                123 N Wacker Drive, Suite 2100<br>
+                                Chicago, IL 60606<br>
+                                United States of America
+                            </p>
+                            <p style="margin-top:12px; font-size:0.85rem; color:var(--text-mid);">
+                                <i class="fas fa-phone" style="margin-right:6px;"></i>+1 (312) 555-0190<br>
+                                <i class="fas fa-envelope" style="margin-right:6px;"></i>usa@gladesinternational.com
+                            </p>
+                        </div>
+                        <div class="facility-capabilities-block">
+                            <h4><i class="fas fa-cogs"></i> Site Capabilities</h4>
+                            <ul class="capability-list">
+                                <li><i class="fas fa-check-circle"></i> North American Sales Office</li>
+                                <li><i class="fas fa-check-circle"></i> Client Relations &amp; Support</li>
+                                <li><i class="fas fa-check-circle"></i> Market Development</li>
+                                <li><i class="fas fa-check-circle"></i> Supply Chain Coordination</li>
+                                <li><i class="fas fa-check-circle"></i> FDA Regulatory Liaison</li>
+                                <li><i class="fas fa-check-circle"></i> Trade Show Representation</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="facility-actions">
+                        <a href="https://www.google.com/maps/dir/?api=1&destination=123+N+Wacker+Drive+Chicago+IL+60606" target="_blank" class="btn-directions">
+                            <i class="fas fa-location-arrow"></i> Get Directions
+                        </a>
+                        <a href="https://maps.google.com/?q=123+N+Wacker+Drive+Chicago+IL+60606" target="_blank" class="btn-map-view">
+                            <i class="fas fa-map"></i> Open in Google Maps
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PANEL: China -->
+            <div class="facility-panel" id="facility-china">
+                <div class="facility-detail-card fade-in">
+                    <iframe class="facility-map-frame"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3690.0!2d121.4737!3d31.2304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35b27040b1f53c33%3A0x295129423c364a!2sShanghai%2C%20China!5e0!3m2!1sen!2scn!4v1710987623456"
+                        allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                    <div class="facility-info-grid">
+                        <div class="facility-address-block">
+                            <h4><i class="fas fa-map-pin"></i> Address</h4>
+                            <p>
+                                <strong>Glades International – China Liaison Office</strong><br>
+                                Room 1508, Pudong Finance Tower<br>
+                                No. 68 Yincheng Middle Road<br>
+                                Pudong New Area, Shanghai 200120<br>
+                                People's Republic of China
+                            </p>
+                            <p style="margin-top:12px; font-size:0.85rem; color:var(--text-mid);">
+                                <i class="fas fa-phone" style="margin-right:6px;"></i>+86 21 5555-0190<br>
+                                <i class="fas fa-envelope" style="margin-right:6px;"></i>china@gladesinternational.com
+                            </p>
+                        </div>
+                        <div class="facility-capabilities-block">
+                            <h4><i class="fas fa-cogs"></i> Site Capabilities</h4>
+                            <ul class="capability-list">
+                                <li><i class="fas fa-check-circle"></i> Asia-Pacific Sourcing Hub</li>
+                                <li><i class="fas fa-check-circle"></i> Raw Material Procurement</li>
+                                <li><i class="fas fa-check-circle"></i> Supplier Quality Audits</li>
+                                <li><i class="fas fa-check-circle"></i> Regional Sales Support</li>
+                                <li><i class="fas fa-check-circle"></i> Logistics Coordination</li>
+                                <li><i class="fas fa-check-circle"></i> Chinese Market Development</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="facility-actions">
+                        <a href="https://www.google.com/maps/dir/?api=1&destination=Pudong+Finance+Tower+Shanghai+China" target="_blank" class="btn-directions">
+                            <i class="fas fa-location-arrow"></i> Get Directions
+                        </a>
+                        <a href="https://maps.google.com/?q=Pudong+New+Area+Shanghai+China" target="_blank" class="btn-map-view">
+                            <i class="fas fa-map"></i> Open in Google Maps
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PANEL: Europe -->
+            <div class="facility-panel" id="facility-europe">
+                <div class="facility-detail-card fade-in">
+                    <iframe class="facility-map-frame"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2428.0!2d4.9041!3d52.3676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c63fb5949a7755%3A0x6600fd4cb7c0af8d!2sAmsterdam%2C%20Netherlands!5e0!3m2!1sen!2snl!4v1710987623456"
+                        allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                    <div class="facility-info-grid">
+                        <div class="facility-address-block">
+                            <h4><i class="fas fa-map-pin"></i> Address</h4>
+                            <p>
+                                <strong>Glades International – Europe Representative Office</strong><br>
+                                Strawinskylaan 3127, Tower A<br>
+                                WTC Amsterdam, 1077 ZX Amsterdam<br>
+                                Netherlands
+                            </p>
+                            <p style="margin-top:12px; font-size:0.85rem; color:var(--text-mid);">
+                                <i class="fas fa-phone" style="margin-right:6px;"></i>+31 20 555-0190<br>
+                                <i class="fas fa-envelope" style="margin-right:6px;"></i>europe@gladesinternational.com
+                            </p>
+                        </div>
+                        <div class="facility-capabilities-block">
+                            <h4><i class="fas fa-cogs"></i> Site Capabilities</h4>
+                            <ul class="capability-list">
+                                <li><i class="fas fa-check-circle"></i> European Market Sales</li>
+                                <li><i class="fas fa-check-circle"></i> EU Compliance &amp; Regulatory Affairs</li>
+                                <li><i class="fas fa-check-circle"></i> REACH &amp; RoHS Certification Support</li>
+                                <li><i class="fas fa-check-circle"></i> Partner &amp; Distributor Relations</li>
+                                <li><i class="fas fa-check-circle"></i> Sustainable Packaging Advisory</li>
+                                <li><i class="fas fa-check-circle"></i> European Trade Show Participation</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="facility-actions">
+                        <a href="https://www.google.com/maps/dir/?api=1&destination=WTC+Amsterdam+Strawinskylaan+Netherlands" target="_blank" class="btn-directions">
+                            <i class="fas fa-location-arrow"></i> Get Directions
+                        </a>
+                        <a href="https://maps.google.com/?q=WTC+Amsterdam+Strawinskylaan+Netherlands" target="_blank" class="btn-map-view">
+                            <i class="fas fa-map"></i> Open in Google Maps
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-about">
-                    <div class="footer-logo">
-                        <i class="fas fa-box-open"></i> Glades International
-                    </div>
+                    <div class="footer-logo"><i class="fas fa-box-open"></i> Glades International</div>
                     <p>Your trusted partner for innovative packaging solutions that perform—today and into the future.</p>
                 </div>
                 <div class="footer-links">
@@ -269,11 +441,12 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2023 Glades International Corporation. All rights reserved.</p>
+                <p>&copy; 2025 Glades International Corporation. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
+    <!-- ===== SUCCESS POPUP (injected by JS) ===== -->
     <script src="js/main.js"></script>
 </body>
 </html>
