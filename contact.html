@@ -6,6 +6,26 @@
     <title>Contact Us | Glades International Corporation</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Additional styling for new ASEAN offices */
+        .flag-icon {
+            width: 20px;
+            height: 15px;
+            display: inline-block;
+            margin-right: 8px;
+            border-radius: 2px;
+        }
+        
+        .facility-tab-btn i.fa-flag-usa,
+        .facility-tab-btn i.fa-globe-europe {
+            display: inline-block;
+        }
+        
+        /* Singapore & Malaysia specific styling */
+        .sg-office i, .my-office i {
+            color: var(--accent);
+        }
+    </style>
 </head>
 <body>
 
@@ -153,7 +173,7 @@
         </div>
     </section>
 
-    <!-- ===== FACILITIES SECTION (Task 4) ===== -->
+    <!-- ===== FACILITIES SECTION (Updated with Singapore & Malaysia) ===== -->
     <section class="section facilities-section">
         <div class="container">
             <div class="section-header">
@@ -161,7 +181,7 @@
                 <p class="fade-in">Click a facility to view its exact location, address, and capabilities</p>
             </div>
 
-            <!-- FACILITY TABS -->
+            <!-- FACILITY TABS - Updated with Singapore & Malaysia -->
             <div class="facilities-tabs">
                 <button class="facility-tab-btn active" data-facility="main-office">
                     <i class="fas fa-building"></i> Main Office (Philippines)
@@ -169,14 +189,14 @@
                 <button class="facility-tab-btn" data-facility="manufacturing">
                     <i class="fas fa-industry"></i> Manufacturing Facility
                 </button>
-                <button class="facility-tab-btn" data-facility="usa">
-                    <i class="fas fa-flag-usa"></i> USA Office
+                <button class="facility-tab-btn" data-facility="singapore">
+                    <i class="fas fa-globe-asia"></i> Singapore Office
+                </button>
+                <button class="facility-tab-btn" data-facility="malaysia">
+                    <i class="fas fa-globe-asia"></i> Malaysia Office
                 </button>
                 <button class="facility-tab-btn" data-facility="china">
                     <i class="fas fa-globe-asia"></i> China Office
-                </button>
-                <button class="facility-tab-btn" data-facility="europe">
-                    <i class="fas fa-globe-europe"></i> Europe Office
                 </button>
             </div>
 
@@ -270,44 +290,90 @@
                 </div>
             </div>
 
-            <!-- PANEL: USA -->
-            <div class="facility-panel" id="facility-usa">
+            <!-- NEW PANEL: Singapore Office (replaces USA) -->
+            <div class="facility-panel" id="facility-singapore">
                 <div class="facility-detail-card fade-in">
                     <iframe class="facility-map-frame"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.0!2d-87.6298!3d41.8781!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880e2c3cd0f4cbed%3A0xafe0a6ad19c0!2sChicago%2C%20IL%2C%20USA!5e0!3m2!1sen!2sus!4v1710987623456"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7912345678!2d103.851959!3d1.285194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da190000000001%3A0x5f5d5e5d5c5b5a59!2sRaffles%20Place%2C%20Singapore!5e0!3m2!1sen!2ssg!4v1710987623456"
                         allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                     </iframe>
                     <div class="facility-info-grid">
                         <div class="facility-address-block">
                             <h4><i class="fas fa-map-pin"></i> Address</h4>
                             <p>
-                                <strong>Glades International – USA Representative Office</strong><br>
-                                123 N Wacker Drive, Suite 2100<br>
-                                Chicago, IL 60606<br>
-                                United States of America
+                                <strong>Glades International – Singapore Regional HQ</strong><br>
+                                50 Raffles Place, #32-01<br>
+                                Singapore Land Tower<br>
+                                Singapore 048623
                             </p>
                             <p style="margin-top:12px; font-size:0.85rem; color:var(--text-mid);">
-                                <i class="fas fa-phone" style="margin-right:6px;"></i>+1 (312) 555-0190<br>
-                                <i class="fas fa-envelope" style="margin-right:6px;"></i>usa@gladesinternational.com
+                                <i class="fas fa-phone" style="margin-right:6px;"></i>+65 6222 1234<br>
+                                <i class="fas fa-envelope" style="margin-right:6px;"></i>singapore@gladesinternational.com
                             </p>
                         </div>
                         <div class="facility-capabilities-block">
                             <h4><i class="fas fa-cogs"></i> Site Capabilities</h4>
                             <ul class="capability-list">
-                                <li><i class="fas fa-check-circle"></i> North American Sales Office</li>
-                                <li><i class="fas fa-check-circle"></i> Client Relations &amp; Support</li>
-                                <li><i class="fas fa-check-circle"></i> Market Development</li>
-                                <li><i class="fas fa-check-circle"></i> Supply Chain Coordination</li>
-                                <li><i class="fas fa-check-circle"></i> FDA Regulatory Liaison</li>
-                                <li><i class="fas fa-check-circle"></i> Trade Show Representation</li>
+                                <li><i class="fas fa-check-circle"></i> ASEAN Regional Headquarters</li>
+                                <li><i class="fas fa-check-circle"></i> Southeast Asia Sales & Marketing</li>
+                                <li><i class="fas fa-check-circle"></i> Supply Chain Management</li>
+                                <li><i class="fas fa-check-circle"></i> Trade Finance & Logistics</li>
+                                <li><i class="fas fa-check-circle"></i> Regional Distribution Hub</li>
+                                <li><i class="fas fa-check-circle"></i> Client Relations & Support</li>
+                                <li><i class="fas fa-check-circle"></i> ISO 14001 Environmental Certified</li>
                             </ul>
                         </div>
                     </div>
                     <div class="facility-actions">
-                        <a href="https://www.google.com/maps/dir/?api=1&destination=123+N+Wacker+Drive+Chicago+IL+60606" target="_blank" class="btn-directions">
+                        <a href="https://www.google.com/maps/dir/?api=1&destination=50+Raffles+Place+Singapore+048623" target="_blank" class="btn-directions">
                             <i class="fas fa-location-arrow"></i> Get Directions
                         </a>
-                        <a href="https://maps.google.com/?q=123+N+Wacker+Drive+Chicago+IL+60606" target="_blank" class="btn-map-view">
+                        <a href="https://maps.google.com/?q=50+Raffles+Place+Singapore+048623" target="_blank" class="btn-map-view">
+                            <i class="fas fa-map"></i> Open in Google Maps
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NEW PANEL: Malaysia Office (replaces Europe) -->
+            <div class="facility-panel" id="facility-malaysia">
+                <div class="facility-detail-card fade-in">
+                    <iframe class="facility-map-frame"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.5123456789!2d101.683459!3d3.149167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc49c701000001%3A0x1a2b3c4d5e6f7a8b!2sKuala%20Lumpur%20City%20Centre%2C%20Kuala%20Lumpur%2C%20Malaysia!5e0!3m2!1sen!2smy!4v1710987623456"
+                        allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                    <div class="facility-info-grid">
+                        <div class="facility-address-block">
+                            <h4><i class="fas fa-map-pin"></i> Address</h4>
+                            <p>
+                                <strong>Glades International – Malaysia Office</strong><br>
+                                Menara Standard Chartered, Level 25<br>
+                                30 Jalan Sultan Ismail<br>
+                                50250 Kuala Lumpur, Malaysia
+                            </p>
+                            <p style="margin-top:12px; font-size:0.85rem; color:var(--text-mid);">
+                                <i class="fas fa-phone" style="margin-right:6px;"></i>+60 3 2050 1234<br>
+                                <i class="fas fa-envelope" style="margin-right:6px;"></i>malaysia@gladesinternational.com
+                            </p>
+                        </div>
+                        <div class="facility-capabilities-block">
+                            <h4><i class="fas fa-cogs"></i> Site Capabilities</h4>
+                            <ul class="capability-list">
+                                <li><i class="fas fa-check-circle"></i> Manufacturing Liaison Office</li>
+                                <li><i class="fas fa-check-circle"></i> Raw Material Sourcing</li>
+                                <li><i class="fas fa-check-circle"></i> Supplier Quality Management</li>
+                                <li><i class="fas fa-check-circle"></i> Regional Procurement Center</li>
+                                <li><i class="fas fa-check-circle"></i> Rubber & Plastic Material Specialists</li>
+                                <li><i class="fas fa-check-circle"></i> Local Market Development</li>
+                                <li><i class="fas fa-check-circle"></i> Halal Certification Support</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="facility-actions">
+                        <a href="https://www.google.com/maps/dir/?api=1&destination=Menara+Standard+Chartered+Jalan+Sultan+Ismail+Kuala+Lumpur" target="_blank" class="btn-directions">
+                            <i class="fas fa-location-arrow"></i> Get Directions
+                        </a>
+                        <a href="https://maps.google.com/?q=Menara+Standard+Chartered+Kuala+Lumpur+Malaysia" target="_blank" class="btn-map-view">
                             <i class="fas fa-map"></i> Open in Google Maps
                         </a>
                     </div>
@@ -353,50 +419,6 @@
                             <i class="fas fa-location-arrow"></i> Get Directions
                         </a>
                         <a href="https://maps.google.com/?q=Pudong+New+Area+Shanghai+China" target="_blank" class="btn-map-view">
-                            <i class="fas fa-map"></i> Open in Google Maps
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PANEL: Europe -->
-            <div class="facility-panel" id="facility-europe">
-                <div class="facility-detail-card fade-in">
-                    <iframe class="facility-map-frame"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2428.0!2d4.9041!3d52.3676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c63fb5949a7755%3A0x6600fd4cb7c0af8d!2sAmsterdam%2C%20Netherlands!5e0!3m2!1sen!2snl!4v1710987623456"
-                        allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                    <div class="facility-info-grid">
-                        <div class="facility-address-block">
-                            <h4><i class="fas fa-map-pin"></i> Address</h4>
-                            <p>
-                                <strong>Glades International – Europe Representative Office</strong><br>
-                                Strawinskylaan 3127, Tower A<br>
-                                WTC Amsterdam, 1077 ZX Amsterdam<br>
-                                Netherlands
-                            </p>
-                            <p style="margin-top:12px; font-size:0.85rem; color:var(--text-mid);">
-                                <i class="fas fa-phone" style="margin-right:6px;"></i>+31 20 555-0190<br>
-                                <i class="fas fa-envelope" style="margin-right:6px;"></i>europe@gladesinternational.com
-                            </p>
-                        </div>
-                        <div class="facility-capabilities-block">
-                            <h4><i class="fas fa-cogs"></i> Site Capabilities</h4>
-                            <ul class="capability-list">
-                                <li><i class="fas fa-check-circle"></i> European Market Sales</li>
-                                <li><i class="fas fa-check-circle"></i> EU Compliance &amp; Regulatory Affairs</li>
-                                <li><i class="fas fa-check-circle"></i> REACH &amp; RoHS Certification Support</li>
-                                <li><i class="fas fa-check-circle"></i> Partner &amp; Distributor Relations</li>
-                                <li><i class="fas fa-check-circle"></i> Sustainable Packaging Advisory</li>
-                                <li><i class="fas fa-check-circle"></i> European Trade Show Participation</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="facility-actions">
-                        <a href="https://www.google.com/maps/dir/?api=1&destination=WTC+Amsterdam+Strawinskylaan+Netherlands" target="_blank" class="btn-directions">
-                            <i class="fas fa-location-arrow"></i> Get Directions
-                        </a>
-                        <a href="https://maps.google.com/?q=WTC+Amsterdam+Strawinskylaan+Netherlands" target="_blank" class="btn-map-view">
                             <i class="fas fa-map"></i> Open in Google Maps
                         </a>
                     </div>
