@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initActiveNav();
   initStickyHeader();
   initContactForm();
-  initInvestorForm();
   initSuccessHashHandler();
   initFooterYear();
   initCounterAnimation();
@@ -124,28 +123,7 @@ function initContactForm() {
   });
 }
 
-/* ============================================================
-   9. INVESTOR FORM
-   ============================================================ */
-function initInvestorForm() {
-  const form = document.getElementById('investorForm');
-  if (!form) return;
-  if (!form.action?.includes('formsubmit')) { form.action = 'https://formsubmit.co/baybayinedu@gmail.com'; form.method = 'POST'; }
-  const addHidden = (n, v) => { if (!form.querySelector(`[name="${n}"]`)) { const i = Object.assign(document.createElement('input'), {type:'hidden',name:n,value:v}); form.appendChild(i); }};
-  addHidden('_captcha', 'false');
-  addHidden('_template', 'table');
-  addHidden('_subject', 'Investor Inquiry — Glades International');
 
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    if (!validateForm(form)) return;
-    const map = { investment:'Investment Opportunity', financial:'Financial Information', governance:'Corporate Governance', reports:'Annual Reports', other:'General Inquiry' };
-    const sel  = form.querySelector('#inv-inquiry, [name="inquiry_type"]');
-    const subj = form.querySelector('[name="_subject"]');
-    if (sel?.value && subj) subj.value = `${map[sel.value] || sel.value} — Investor Relations`;
-    submitForm(form, 'Thank you for your investor inquiry! Our IR team will respond within 2 business days.', 'investors.html');
-  });
-}
 
 /* ============================================================
    10. FORM SUBMIT HELPER (DRY)
